@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { ExternalLink, Github, Code, Database, Cloud, BarChart } from 'lucide-react';
 
 const Projects = () => {
   const [ref, inView] = useInView({
@@ -12,38 +13,93 @@ const Projects = () => {
   const projects = [
     {
       title: "Doubtify",
-      description: "A comprehensive Q&A platform similar to StackOverflow where users can ask technical questions, receive community-driven answers, and engage through upvoting/downvoting systems.",
-      technologies: ["React", "Express", "Node.js", "MySQL"],
-      features: ["Question posting", "Answer suggestions", "Voting system", "User authentication"]
+      description: "A comprehensive Q&A platform similar to StackOverflow where users can ask technical questions, receive community-driven answers, and engage through upvoting/downvoting systems. Features user authentication, question categorization, and real-time notifications.",
+      technologies: ["React.js", "Express.js", "Node.js", "MySQL", "JWT Authentication", "Socket.io"],
+      features: [
+        "User registration and authentication",
+        "Question posting with rich text editor",
+        "Community-driven answer system",
+        "Upvoting/downvoting mechanism",
+        "Real-time notifications",
+        "Question categorization and tagging"
+      ],
+      icon: Code,
+      color: "from-blue-500 to-cyan-500",
+      githubLink: "#",
+      liveLink: "#"
     },
     {
       title: "Heart Disease Predictor",
-      description: "An intelligent health risk prediction tool that combines machine learning with modern web technologies to analyze ECG data and provide visual predictions with email notifications.",
-      technologies: ["React", "TailwindCSS", "Express", "Flask", "ML/Pickle"],
-      features: ["ECG upload", "ML predictions", "Visual analytics", "Email reports"]
+      description: "An intelligent health risk prediction tool that combines machine learning with modern web technologies to analyze ECG data and provide visual predictions with email notifications. Uses trained ML models for accurate health assessments.",
+      technologies: ["React.js", "TailwindCSS", "Express.js", "Flask", "Python", "Scikit-learn", "Pickle", "EmailJS"],
+      features: [
+        "ECG data upload and processing",
+        "Machine learning predictions",
+        "Interactive data visualization",
+        "Email report generation",
+        "Risk assessment dashboard",
+        "Historical data tracking"
+      ],
+      icon: BarChart,
+      color: "from-red-500 to-pink-500",
+      githubLink: "#",
+      liveLink: "#"
     },
     {
       title: "COVID-19 Data Dashboard",
-      description: "Interactive dashboard analyzing COVID-19 trends and patterns using Python data science libraries, providing comprehensive visualizations and insights.",
-      technologies: ["Python", "Matplotlib", "NumPy", "Pandas"],
-      features: ["Trend analysis", "Interactive graphs", "Data reports", "Pattern recognition"]
+      description: "Interactive dashboard analyzing COVID-19 trends and patterns using Python data science libraries, providing comprehensive visualizations and insights. Features real-time data updates and comparative analysis across regions.",
+      technologies: ["Python", "Matplotlib", "NumPy", "Pandas", "Plotly", "Streamlit", "COVID-19 API"],
+      features: [
+        "Real-time COVID-19 data analysis",
+        "Interactive trend visualization",
+        "Regional comparison charts",
+        "Statistical pattern recognition",
+        "Exportable data reports",
+        "Mobile-responsive interface"
+      ],
+      icon: BarChart,
+      color: "from-green-500 to-emerald-500",
+      githubLink: "#",
+      liveLink: "#"
     },
     {
       title: "Pizza Sales Analysis",
-      description: "SQL-based analytical dashboard designed to understand customer behavior, identify sales trends, and provide actionable business recommendations.",
-      technologies: ["SQL", "Database Design", "Analytics"],
-      features: ["Sales trends", "Customer insights", "Behavioral analysis", "Business recommendations"]
+      description: "SQL-based analytical dashboard designed to understand customer behavior, identify sales trends, and provide actionable business recommendations. Includes comprehensive data modeling and visualization.",
+      technologies: ["SQL", "MySQL", "Power BI", "Python", "Pandas", "Database Design"],
+      features: [
+        "Comprehensive sales trend analysis",
+        "Customer behavior insights",
+        "Revenue optimization recommendations",
+        "Interactive business dashboards",
+        "Automated reporting system",
+        "Data warehouse implementation"
+      ],
+      icon: Database,
+      color: "from-orange-500 to-amber-500",
+      githubLink: "#",
+      liveLink: "#"
     },
     {
       title: "Drone Monitoring System",
-      description: "Academic project integrating IoT sensors with drone technology for comprehensive area monitoring, combining hardware and software solutions.",
-      technologies: ["IoT", "Sensors", "Data Integration"],
-      features: ["Real-time monitoring", "Sensor integration", "Data collection", "Area surveillance"]
+      description: "Academic project integrating IoT sensors with drone technology for comprehensive area monitoring, combining hardware and software solutions. Features real-time data collection and analysis.",
+      technologies: ["IoT Sensors", "Arduino", "Python", "Data Integration", "Real-time Processing", "Wireless Communication"],
+      features: [
+        "Real-time area monitoring",
+        "IoT sensor data integration",
+        "Automated data collection",
+        "Environmental surveillance",
+        "Alert notification system",
+        "Data visualization dashboard"
+      ],
+      icon: Cloud,
+      color: "from-purple-500 to-violet-500",
+      githubLink: "#",
+      liveLink: "#"
     }
   ];
 
   return (
-    <section id="projects" className="py-20 bg-white">
+    <section id="projects" className="py-20 bg-slate-50">
       <div className="max-w-6xl mx-auto px-4">
         <motion.div
           ref={ref}
@@ -53,11 +109,14 @@ const Projects = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-slate-800 to-blue-600 bg-clip-text text-transparent">
               Featured Projects
             </span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-slate-800 to-blue-600 mx-auto rounded-full mb-4"></div>
+          <p className="text-slate-600 max-w-2xl mx-auto">
+            A showcase of my technical projects demonstrating full-stack development, data science, and problem-solving skills.
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -67,25 +126,48 @@ const Projects = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-gradient-to-br from-gray-50 to-blue-50 p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 group"
+              className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group border border-slate-200"
             >
-              <h3 className="text-2xl font-bold mb-4 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
+              <div className="flex items-start justify-between mb-6">
+                <div className={`w-12 h-12 bg-gradient-to-r ${project.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                  <project.icon className="text-white" size={24} />
+                </div>
+                
+                <div className="flex space-x-3">
+                  <a
+                    href={project.githubLink}
+                    className="text-slate-400 hover:text-slate-600 transition-colors duration-200"
+                    title="View on GitHub"
+                  >
+                    <Github size={20} />
+                  </a>
+                  <a
+                    href={project.liveLink}
+                    className="text-slate-400 hover:text-blue-600 transition-colors duration-200"
+                    title="View Live Project"
+                  >
+                    <ExternalLink size={20} />
+                  </a>
+                </div>
+              </div>
+
+              <h3 className="text-2xl font-bold mb-4 text-slate-800 group-hover:text-blue-600 transition-colors duration-300">
                 {project.title}
               </h3>
               
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-slate-600 mb-6 leading-relaxed">
                 {project.description}
               </p>
 
               <div className="mb-6">
-                <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
-                  Technologies Used
+                <h4 className="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-3">
+                  Technologies & Tools
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium"
+                      className="px-3 py-1 bg-slate-100 text-slate-700 rounded-lg text-sm font-medium hover:bg-slate-200 transition-colors duration-200"
                     >
                       {tech}
                     </span>
@@ -94,13 +176,13 @@ const Projects = () => {
               </div>
 
               <div>
-                <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
+                <h4 className="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-3">
                   Key Features
                 </h4>
-                <ul className="grid grid-cols-2 gap-2">
+                <ul className="grid grid-cols-1 gap-2">
                   {project.features.map((feature) => (
-                    <li key={feature} className="flex items-center text-sm text-gray-600">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                    <li key={feature} className="flex items-start text-sm text-slate-600">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
                       {feature}
                     </li>
                   ))}
