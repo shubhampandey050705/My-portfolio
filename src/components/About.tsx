@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Brain, Database, BarChart3, Code, Globe, Zap } from 'lucide-react';
+import { Brain, Database, BarChart3, Code, Globe, Zap, GraduationCap, Briefcase, Award } from 'lucide-react';
 
 const About = () => {
   const [ref, inView] = useInView({
@@ -11,13 +11,11 @@ const About = () => {
   });
 
   const floatingAnimation = {
-    animate: {
-      y: [0, -10, 0],
-      transition: {
-        duration: 3,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }
+    y: [0, -10, 0],
+    transition: {
+      duration: 3,
+      repeat: Infinity,
+      ease: "easeInOut"
     }
   };
 
@@ -29,6 +27,16 @@ const About = () => {
       transition: { duration: 0.6, ease: "easeOut" }
     }
   };
+
+  const technicalSkills = [
+    "Python", "Java", "JavaScript", "SQL", "React", "Node.js", 
+    "NumPy", "Pandas", "Matplotlib", "Flask", "MySQL", "Git", "Alteryx"
+  ];
+
+  const softSkills = [
+    "Communication", "Project Management", "Team Leadership", 
+    "Problem Solving", "Analytical Thinking", "Time Management"
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 pt-20">
@@ -60,22 +68,19 @@ const About = () => {
           {/* Floating Icons */}
           <div className="relative">
             <motion.div
-              variants={floatingAnimation}
-              animate="animate" 
+              animate={floatingAnimation}
               className="absolute top-10 left-10 text-blue-500 dark:text-blue-400"
             >
               <BarChart3 size={40} />
             </motion.div>
             <motion.div
-              variants={floatingAnimation}
-              animate="animate"
+              animate={floatingAnimation}
               className="absolute top-20 right-20 text-purple-500 dark:text-purple-400"
             >
               <Brain size={35} />
             </motion.div>
             <motion.div
-              variants={floatingAnimation}
-              animate="animate"
+              animate={floatingAnimation}
               className="absolute bottom-10 right-10 text-green-500 dark:text-green-400"
             >
               <Database size={45} />
@@ -148,7 +153,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Professional Summary */}
+      {/* Skills Section */}
       <section className="py-20 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-4">
           <motion.div
@@ -158,66 +163,173 @@ const About = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-8 text-slate-800 dark:text-white">Professional Journey</h2>
+            <h2 className="text-4xl font-bold mb-8 text-slate-800 dark:text-white">Skills</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full mb-8"></div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <motion.div 
                 variants={cardVariants}
-                className="text-left"
+                className="bg-gradient-to-br from-slate-100 to-slate-200 dark:from-gray-700 dark:to-gray-800 p-8 rounded-2xl shadow-lg"
               >
-                <h3 className="text-2xl font-bold mb-4 text-slate-800 dark:text-white">My Approach</h3>
-                <p className="text-lg text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
-                  I believe in the power of data-driven insights combined with intuitive user experiences. 
-                  My approach integrates analytical rigor with creative problem-solving to deliver solutions 
-                  that are both technically sound and user-friendly.
-                </p>
-                <ul className="space-y-3 text-slate-600 dark:text-slate-300">
-                  <li className="flex items-center">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                    Data-driven decision making
-                  </li>
-                  <li className="flex items-center">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
-                    User-centered design thinking
-                  </li>
-                  <li className="flex items-center">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                    Continuous learning mindset
-                  </li>
-                </ul>
+                <h3 className="text-2xl font-bold mb-6 text-slate-800 dark:text-white flex items-center">
+                  <Code className="mr-3 text-blue-500" size={28} />
+                  Technical Skills
+                </h3>
+                <div className="flex flex-wrap gap-3">
+                  {technicalSkills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </motion.div>
               
               <motion.div 
                 variants={cardVariants}
                 className="bg-gradient-to-br from-slate-100 to-slate-200 dark:from-gray-700 dark:to-gray-800 p-8 rounded-2xl shadow-lg"
               >
-                <h3 className="text-2xl font-bold mb-4 text-slate-800 dark:text-white">Current Focus</h3>
-                <p className="text-slate-600 dark:text-slate-300 mb-6">
-                  Currently pursuing my Computer Science degree while actively working on projects that 
-                  bridge the gap between data science and web development.
-                </p>
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center">
-                    <span className="text-slate-700 dark:text-slate-300">Data Science</span>
-                    <div className="w-32 bg-gray-300 dark:bg-gray-600 rounded-full h-2">
-                      <div className="bg-blue-500 h-2 rounded-full w-4/5"></div>
+                <h3 className="text-2xl font-bold mb-6 text-slate-800 dark:text-white flex items-center">
+                  <Award className="mr-3 text-purple-500" size={28} />
+                  Soft Skills
+                </h3>
+                <div className="flex flex-wrap gap-3">
+                  {softSkills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm font-medium"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+        <div className="max-w-6xl mx-auto px-4">
+          <motion.div
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold mb-8 text-slate-800 dark:text-white">Experience</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full mb-8"></div>
+            
+            <div className="max-w-4xl mx-auto">
+              <motion.div
+                variants={cardVariants}
+                className="relative"
+              >
+                <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-600 to-purple-600"></div>
+                
+                <div className="relative pl-20">
+                  <div className="absolute left-6 w-4 h-4 bg-blue-600 rounded-full border-4 border-white dark:border-gray-800 shadow-lg"></div>
+                  
+                  <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div className="flex items-center mb-4">
+                      <Briefcase className="mr-3 text-blue-500" size={24} />
+                      <h3 className="text-2xl font-bold text-gray-800 dark:text-white">Virtual Intern</h3>
                     </div>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-slate-700 dark:text-slate-300">Web Development</span>
-                    <div className="w-32 bg-gray-300 dark:bg-gray-600 rounded-full h-2">
-                      <div className="bg-green-500 h-2 rounded-full w-4/5"></div>
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-slate-700 dark:text-slate-300">Machine Learning</span>
-                    <div className="w-32 bg-gray-300 dark:bg-gray-600 rounded-full h-2">
-                      <div className="bg-purple-500 h-2 rounded-full w-3/4"></div>
+                    <h4 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-2">Eduskills & AICTE</h4>
+                    <p className="text-gray-500 dark:text-gray-400 font-medium mb-4">Data Analytics Program</p>
+                    
+                    <div className="space-y-3">
+                      <p className="text-gray-700 dark:text-gray-300">• Automated 80% of data processing workflows using Alteryx</p>
+                      <p className="text-gray-700 dark:text-gray-300">• Designed comprehensive dashboards for data visualization</p>
+                      <p className="text-gray-700 dark:text-gray-300">• Performed advanced data transformation and cleaning operations</p>
                     </div>
                   </div>
                 </div>
               </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Education Section */}
+      <section className="py-20 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm">
+        <div className="max-w-6xl mx-auto px-4">
+          <motion.div
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold mb-8 text-slate-800 dark:text-white">Education</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full mb-8"></div>
+            
+            <div className="max-w-4xl mx-auto">
+              <div className="relative">
+                <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-600 to-purple-600"></div>
+                
+                <div className="space-y-12">
+                  {[
+                    {
+                      degree: "B.Tech Computer Science Engineering",
+                      institution: "Galgotias University",
+                      duration: "2022 - 2026",
+                      grade: "CGPA: 8.5",
+                      description: "Comprehensive computer science curriculum with focus on software development, data structures, algorithms, and emerging technologies."
+                    },
+                    {
+                      degree: "Higher Secondary (12th)",
+                      institution: "Gyan Peethika School",
+                      duration: "2020 - 2022",
+                      grade: "85%",
+                      description: "Science stream with Mathematics and Computer Science as core subjects."
+                    },
+                    {
+                      degree: "Secondary (10th)",
+                      institution: "Gyan Peethika School",
+                      duration: "2018 - 2020",
+                      grade: "82%",
+                      description: "Strong foundation in mathematics, science, and analytical thinking."
+                    }
+                  ].map((edu, index) => (
+                    <motion.div
+                      key={edu.degree}
+                      variants={cardVariants}
+                      className="relative pl-20"
+                    >
+                      <div className="absolute left-6 w-4 h-4 bg-blue-600 rounded-full border-4 border-white dark:border-gray-800 shadow-lg"></div>
+                      
+                      <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 dark:border-gray-700/50">
+                        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                          <div>
+                            <div className="flex items-center mb-2">
+                              <GraduationCap className="mr-3 text-blue-500" size={24} />
+                              <h3 className="text-xl md:text-2xl font-bold text-gray-800 dark:text-white">
+                                {edu.degree}
+                              </h3>
+                            </div>
+                            <h4 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-2">
+                              {edu.institution}
+                            </h4>
+                          </div>
+                          <div className="text-right">
+                            <p className="text-gray-500 dark:text-gray-400 font-medium mb-1">{edu.duration}</p>
+                            <p className="text-lg font-bold text-green-600 dark:text-green-400">{edu.grade}</p>
+                          </div>
+                        </div>
+                        
+                        <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                          {edu.description}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>

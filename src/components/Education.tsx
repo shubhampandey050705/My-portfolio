@@ -34,7 +34,7 @@ const Education = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white dark:bg-gray-800">
       <div className="max-w-6xl mx-auto px-4">
         <motion.div
           ref={ref}
@@ -65,25 +65,25 @@ const Education = () => {
                   transition={{ duration: 0.6, delay: index * 0.2 }}
                   className="relative pl-20"
                 >
-                  <div className="absolute left-6 w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-lg"></div>
+                  <div className="absolute left-6 w-4 h-4 bg-blue-600 rounded-full border-4 border-white dark:border-gray-800 shadow-lg"></div>
                   
-                  <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                  <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 dark:border-gray-700/50">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                       <div>
-                        <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-2">
+                        <h3 className="text-xl md:text-2xl font-bold text-gray-800 dark:text-white mb-2">
                           {edu.degree}
                         </h3>
-                        <h4 className="text-lg font-semibold text-blue-600 mb-2">
+                        <h4 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-2">
                           {edu.institution}
                         </h4>
                       </div>
                       <div className="text-right">
-                        <p className="text-gray-500 font-medium mb-1">{edu.duration}</p>
-                        <p className="text-lg font-bold text-green-600">{edu.grade}</p>
+                        <p className="text-gray-500 dark:text-gray-400 font-medium mb-1">{edu.duration}</p>
+                        <p className="text-lg font-bold text-green-600 dark:text-green-400">{edu.grade}</p>
                       </div>
                     </div>
                     
-                    <p className="text-gray-700 leading-relaxed">
+                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                       {edu.description}
                     </p>
                   </div>

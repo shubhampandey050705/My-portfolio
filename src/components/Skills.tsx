@@ -38,7 +38,7 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 bg-gray-50">
+    <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-6xl mx-auto px-4">
         <motion.div
           ref={ref}
@@ -62,19 +62,19 @@ const Skills = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
             >
               <div className={`w-12 h-12 bg-gradient-to-r ${category.color} rounded-xl mb-4 flex items-center justify-center`}>
                 <div className="w-6 h-6 bg-white rounded-md"></div>
               </div>
               
-              <h3 className="text-xl font-bold mb-4 text-gray-800">{category.title}</h3>
+              <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-white">{category.title}</h3>
               
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors duration-200"
+                    className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
                   >
                     {skill}
                   </span>
