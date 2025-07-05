@@ -38,10 +38,8 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="order-1 lg:order-2 text-center lg:text-left"
             >
-              <h1 className="text-4xl md:text-6xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-slate-800 to-blue-600 bg-clip-text text-transparent">
-                  Shubham Pandey
-                </span>
+              <h1 className="text-4xl md:text-6xl font-bold mb-4 text-slate-800">
+                Shubham Pandey
               </h1>
               
               {/* Added Data Science | Data Analytics */}
@@ -113,7 +111,7 @@ const Hero = () => {
             >
               <ArrowDown size={32} />
             </button>
-          </div>
+          </motion.div>
         </div>
       </section>
 
