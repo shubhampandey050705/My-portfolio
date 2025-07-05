@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, Github, Linkedin, Mail, Phone } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Mail, Phone, BarChart3, Database, Brain } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navigation from './Navigation';
 
@@ -38,11 +38,22 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="order-1 lg:order-2 text-center lg:text-left"
             >
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              <h1 className="text-4xl md:text-6xl font-bold mb-4">
                 <span className="bg-gradient-to-r from-slate-800 to-blue-600 bg-clip-text text-transparent">
                   Shubham Pandey
                 </span>
               </h1>
+              
+              {/* Added Data Science | Data Analytics */}
+              <div className="flex items-center justify-center lg:justify-start mb-6">
+                <div className="flex items-center space-x-3">
+                  <BarChart3 className="text-blue-600" size={24} />
+                  <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                    Data Science | Data Analytics
+                  </span>
+                  <Database className="text-purple-600" size={24} />
+                </div>
+              </div>
               
               <h2 className="text-xl md:text-2xl text-slate-600 mb-6 font-medium">
                 Full-Stack Developer | Data Analyst | CS Undergrad
@@ -102,11 +113,11 @@ const Hero = () => {
             >
               <ArrowDown size={32} />
             </button>
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* About Brief Section */}
+      {/* About Brief Section with Data Science Focus */}
       <section id="about-brief" className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <motion.div
@@ -126,34 +137,52 @@ const Hero = () => {
             <div className="max-w-4xl mx-auto">
               <p className="text-lg text-slate-600 leading-relaxed mb-8">
                 Welcome to my digital portfolio! I'm a passionate Computer Science student at Galgotias University 
-                with a strong foundation in full-stack development and data analytics. This portfolio showcases my 
-                journey through various technologies, projects, and achievements in the field of software development.
+                with expertise in full-stack development, data science, and analytics. This portfolio showcases my 
+                journey through various technologies, data-driven projects, and achievements in software development and data analysis.
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="text-center p-6 bg-slate-50 rounded-xl">
-                  <h3 className="text-xl font-bold text-slate-800 mb-2">Connect & Collaborate</h3>
+                <motion.div 
+                  className="text-center p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl hover:shadow-lg transition-all duration-300"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <BarChart3 className="text-white" size={24} />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-800 mb-2">Data Analytics</h3>
                   <p className="text-slate-600">
-                    I'm always open to discussing new opportunities, collaborating on projects, 
-                    or sharing knowledge about technology and development.
+                    Transforming raw data into actionable insights using advanced statistical methods, 
+                    visualization techniques, and machine learning algorithms.
                   </p>
-                </div>
+                </motion.div>
                 
-                <div className="text-center p-6 bg-blue-50 rounded-xl">
-                  <h3 className="text-xl font-bold text-slate-800 mb-2">Continuous Learning</h3>
+                <motion.div 
+                  className="text-center p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl hover:shadow-lg transition-all duration-300"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Brain className="text-white" size={24} />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-800 mb-2">Machine Learning</h3>
                   <p className="text-slate-600">
-                    Technology evolves rapidly, and so do I. I'm committed to staying updated 
-                    with the latest trends and best practices in software development.
+                    Building predictive models and implementing intelligent solutions that learn from data 
+                    to solve complex real-world problems.
                   </p>
-                </div>
+                </motion.div>
                 
-                <div className="text-center p-6 bg-slate-50 rounded-xl">
-                  <h3 className="text-xl font-bold text-slate-800 mb-2">Problem Solving</h3>
+                <motion.div 
+                  className="text-center p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-xl hover:shadow-lg transition-all duration-300"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Database className="text-white" size={24} />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-800 mb-2">Full-Stack Development</h3>
                   <p className="text-slate-600">
-                    I enjoy tackling complex challenges and creating solutions that make a 
-                    real difference in people's lives through technology.
+                    Creating end-to-end web applications with modern technologies, focusing on scalable 
+                    architecture and exceptional user experiences.
                   </p>
-                </div>
+                </motion.div>
               </div>
             </div>
           </motion.div>
