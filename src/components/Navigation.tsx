@@ -29,7 +29,7 @@ const Navigation = () => {
   return (
     <motion.nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-slate-200 dark:bg-gray-900/95 dark:border-gray-700' : 'bg-transparent'
+        isScrolled ? 'bg-background/95 backdrop-blur-md shadow-lg border-b border-border' : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -39,7 +39,7 @@ const Navigation = () => {
         <div className="flex justify-between items-center">
           <Link to="/">
             <motion.div
-              className="text-2xl font-bold bg-gradient-to-r from-slate-800 to-blue-600 bg-clip-text text-transparent dark:from-white dark:to-blue-400"
+              className="text-2xl font-bold bg-gradient-to-r from-foreground to-accent bg-clip-text text-transparent"
               whileHover={{ scale: 1.05 }}
             >
               SP
@@ -53,14 +53,14 @@ const Navigation = () => {
                 to={item.path}
                 className={`transition-colors duration-200 font-medium relative ${
                   location.pathname === item.path
-                    ? 'text-blue-600 dark:text-blue-400'
-                    : 'text-slate-700 hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400'
+                    ? 'text-accent'
+                    : 'text-muted-foreground hover:text-accent'
                 }`}
               >
                 {item.name}
                 {location.pathname === item.path && (
                   <motion.div
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-blue-600 dark:bg-blue-400"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent"
                     layoutId="activeTab"
                   />
                 )}
@@ -72,12 +72,12 @@ const Navigation = () => {
               onClick={toggleTheme}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="p-2 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors"
+              className="p-2 rounded-full bg-secondary hover:bg-muted transition-colors border border-border"
             >
               {theme === 'light' ? (
-                <Moon size={20} className="text-slate-600 dark:text-slate-300" />
+                <Moon size={20} className="text-foreground" />
               ) : (
-                <Sun size={20} className="text-slate-600 dark:text-slate-300" />
+                <Sun size={20} className="text-accent" />
               )}
             </motion.button>
           </div>
@@ -88,16 +88,16 @@ const Navigation = () => {
               onClick={toggleTheme}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="p-2 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors"
+              className="p-2 rounded-full bg-secondary hover:bg-muted transition-colors border border-border"
             >
               {theme === 'light' ? (
-                <Moon size={18} className="text-slate-600 dark:text-slate-300" />
+                <Moon size={18} className="text-foreground" />
               ) : (
-                <Sun size={18} className="text-slate-600 dark:text-slate-300" />
+                <Sun size={18} className="text-accent" />
               )}
             </motion.button>
             
-            <button className="text-slate-700 hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400">
+            <button className="text-muted-foreground hover:text-accent">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>

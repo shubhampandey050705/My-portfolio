@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, Github, Linkedin, Mail, Phone, BarChart3, Database, Brain } from 'lucide-react';
@@ -14,100 +13,140 @@ const Hero = () => {
   return (
     <>
       <Navigation />
-      <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-blue-50 pt-20">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left side - Image */}
+      
+      {/* Hero Section with Half Background Image */}
+      <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+        {/* Background Image - Left Half */}
+        <div className="absolute inset-0 lg:w-1/2 w-full">
+          <div 
+            className="w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/lovable-uploads/245d5d0e-eb9a-45f7-853f-f77ebdb7283c.png')`
+            }}
+          />
+        </div>
+        
+        {/* Content Background - Right Half */}
+        <div className="absolute inset-0 lg:left-1/2 left-0 bg-background/95 backdrop-blur-sm" />
+        
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-screen">
+            
+            {/* Left side - Navigation Menu (Dark Style) */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="order-2 lg:order-1"
+              className="order-2 lg:order-1 flex flex-col justify-center lg:pl-12"
             >
-              <img
-                src="/lovable-uploads/f5592b8c-c96f-4415-b66e-e941511cb225.png"
-                alt="Shubham Pandey"
-                className="w-80 h-80 lg:w-96 lg:h-96 rounded-3xl mx-auto shadow-2xl border-8 border-white"
-              />
+              <div className="space-y-8 text-white lg:text-left text-center">
+                <nav className="space-y-4">
+                  <Link to="/about" className="block text-lg hover:text-accent transition-colors duration-300 font-medium">
+                    ABOUT ME
+                  </Link>
+                  <Link to="/experience" className="block text-lg hover:text-accent transition-colors duration-300 font-medium">
+                    EXPERIENCE
+                  </Link>
+                  <Link to="/projects" className="block text-lg hover:text-accent transition-colors duration-300 font-medium">
+                    PROJECTS
+                  </Link>
+                  <Link to="/skills" className="block text-lg hover:text-accent transition-colors duration-300 font-medium">
+                    SKILLS
+                  </Link>
+                  <Link to="/contact" className="block text-lg hover:text-accent transition-colors duration-300 font-medium">
+                    CONTACT
+                  </Link>
+                </nav>
+                
+                <div className="space-y-2 text-sm text-gray-300">
+                  <p>EMAIL</p>
+                  <p className="text-white">shubhampandey050705@gmail.com</p>
+                </div>
+                
+                <div className="space-y-2 text-sm text-gray-300">
+                  <p>PHONE</p>
+                  <p className="text-white">+91 7752884451</p>
+                </div>
+              </div>
             </motion.div>
 
-            {/* Right side - Content */}
+            {/* Right side - Main Content */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="order-1 lg:order-2 text-center lg:text-left"
+              className="order-1 lg:order-2 text-center lg:text-left lg:pr-12"
             >
-              <h1 className="text-4xl md:text-6xl font-bold mb-4 text-slate-800">
-                Shubham Pandey
-              </h1>
-              
-              {/* Added Data Science | Data Analytics */}
-              <div className="flex items-center justify-center lg:justify-start mb-6">
-                <div className="flex items-center space-x-3">
-                  <BarChart3 className="text-blue-600" size={24} />
-                  <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                    Data Science | Data Analytics
-                  </span>
-                  <Database className="text-purple-600" size={24} />
-                </div>
-              </div>
-              
-              <h2 className="text-xl md:text-2xl text-slate-600 mb-6 font-medium">
-                Full-Stack Developer | Data Analyst | CS Undergrad
-              </h2>
-              
-              <p className="text-lg text-slate-500 mb-8">📍 Greater Noida, India</p>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-slate-800 text-white px-8 py-3 rounded-lg font-semibold shadow-lg hover:bg-slate-700 transition-all duration-300"
-                >
-                  Download Resume
-                </motion.button>
+              <div className="space-y-6">
+                <h1 className="text-5xl md:text-7xl font-bold text-foreground">
+                  Shubham
+                  <br />
+                  <span className="text-accent font-bold italic">Pandey</span>
+                </h1>
                 
-                <Link to="/contact">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="border-2 border-slate-300 text-slate-700 px-8 py-3 rounded-lg font-semibold hover:border-blue-600 hover:text-blue-600 transition-all duration-300"
-                  >
-                    Get In Touch
-                  </motion.button>
-                </Link>
-              </div>
-
-              <div className="flex justify-center lg:justify-start space-x-6">
-                {[
-                  { icon: Github, href: '#', label: 'GitHub' },
-                  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-                  { icon: Mail, href: 'mailto:shubhampandey050705@gmail.com', label: 'Email' },
-                  { icon: Phone, href: 'tel:+917752884451', label: 'Phone' }
-                ].map(({ icon: Icon, href, label }) => (
-                  <motion.a
-                    key={label}
-                    href={href}
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    className="p-3 bg-white rounded-full shadow-md hover:shadow-lg transition-all duration-300 text-slate-600 hover:text-blue-600"
-                  >
-                    <Icon size={24} />
-                  </motion.a>
-                ))}
+                <p className="text-sm text-muted-foreground uppercase tracking-wider">
+                  DATA SCIENTIST | FULL-STACK DEVELOPER
+                </p>
+                
+                <div className="max-w-md">
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    I'm a <span className="text-accent font-semibold">data science enthusiast</span> from Greater Noida, India. 
+                    I aim to make a difference through my creative solutions.
+                  </p>
+                </div>
+                
+                {/* Stats Grid */}
+                <div className="grid grid-cols-2 gap-8 max-w-sm pt-8">
+                  <div>
+                    <p className="text-sm text-muted-foreground uppercase tracking-wider mb-1">EDUCATION</p>
+                    <p className="text-foreground">Computer Science</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground uppercase tracking-wider mb-1">EXPERIENCE</p>
+                    <p className="text-foreground">2+ years</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground uppercase tracking-wider mb-1">FAMILIAR WITH</p>
+                    <p className="text-foreground">Python, React, ML</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground uppercase tracking-wider mb-1">SKILLS</p>
+                    <p className="text-foreground">Analytics, Development</p>
+                  </div>
+                </div>
+                
+                {/* Social Links */}
+                <div className="flex justify-center lg:justify-start space-x-4 pt-4">
+                  {[
+                    { icon: Github, href: '#', label: 'GitHub' },
+                    { icon: Linkedin, href: '#', label: 'LinkedIn' },
+                    { icon: Mail, href: 'mailto:shubhampandey050705@gmail.com', label: 'Email' }
+                  ].map(({ icon: Icon, href, label }) => (
+                    <motion.a
+                      key={label}
+                      href={href}
+                      whileHover={{ scale: 1.1, y: -2 }}
+                      className="p-3 bg-card rounded-full shadow-lg hover:shadow-xl transition-all duration-300 text-muted-foreground hover:text-accent border border-border"
+                    >
+                      <Icon size={20} />
+                    </motion.a>
+                  ))}
+                </div>
               </div>
             </motion.div>
           </div>
 
+          {/* Scroll Down Arrow */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-center mt-16"
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
           >
             <button
               onClick={scrollToAbout}
-              className="text-slate-400 hover:text-blue-600 transition-colors duration-300 animate-bounce"
+              className="text-muted-foreground hover:text-accent transition-colors duration-300 animate-bounce"
             >
               <ArrowDown size={32} />
             </button>
@@ -116,7 +155,7 @@ const Hero = () => {
       </section>
 
       {/* About Brief Section with Data Science Focus */}
-      <section id="about-brief" className="py-20 bg-white">
+      <section id="about-brief" className="py-20 bg-background">
         <div className="max-w-6xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -126,14 +165,14 @@ const Hero = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-8">
-              <span className="bg-gradient-to-r from-slate-800 to-blue-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-foreground to-accent bg-clip-text text-transparent">
                 About This Portfolio
               </span>
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-slate-800 to-blue-600 mx-auto rounded-full mb-8"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-foreground to-accent mx-auto rounded-full mb-8"></div>
             
             <div className="max-w-4xl mx-auto">
-              <p className="text-lg text-slate-600 leading-relaxed mb-8">
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
                 Welcome to my digital portfolio! I'm a passionate Computer Science student at Galgotias University 
                 with expertise in full-stack development, data science, and analytics. This portfolio showcases my 
                 journey through various technologies, data-driven projects, and achievements in software development and data analysis.
@@ -141,42 +180,42 @@ const Hero = () => {
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <motion.div 
-                  className="text-center p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl hover:shadow-lg transition-all duration-300"
+                  className="text-center p-6 bg-card rounded-xl hover:shadow-lg transition-all duration-300 border border-border"
                   whileHover={{ scale: 1.05 }}
                 >
                   <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <BarChart3 className="text-white" size={24} />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-800 mb-2">Data Analytics</h3>
-                  <p className="text-slate-600">
+                  <h3 className="text-xl font-bold text-foreground mb-2">Data Analytics</h3>
+                  <p className="text-muted-foreground">
                     Transforming raw data into actionable insights using advanced statistical methods, 
                     visualization techniques, and machine learning algorithms.
                   </p>
                 </motion.div>
                 
                 <motion.div 
-                  className="text-center p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl hover:shadow-lg transition-all duration-300"
+                  className="text-center p-6 bg-card rounded-xl hover:shadow-lg transition-all duration-300 border border-border"
                   whileHover={{ scale: 1.05 }}
                 >
                   <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Brain className="text-white" size={24} />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-800 mb-2">Machine Learning</h3>
-                  <p className="text-slate-600">
+                  <h3 className="text-xl font-bold text-foreground mb-2">Machine Learning</h3>
+                  <p className="text-muted-foreground">
                     Building predictive models and implementing intelligent solutions that learn from data 
                     to solve complex real-world problems.
                   </p>
                 </motion.div>
                 
                 <motion.div 
-                  className="text-center p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-xl hover:shadow-lg transition-all duration-300"
+                  className="text-center p-6 bg-card rounded-xl hover:shadow-lg transition-all duration-300 border border-border"
                   whileHover={{ scale: 1.05 }}
                 >
                   <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Database className="text-white" size={24} />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-800 mb-2">Full-Stack Development</h3>
-                  <p className="text-slate-600">
+                  <h3 className="text-xl font-bold text-foreground mb-2">Full-Stack Development</h3>
+                  <p className="text-muted-foreground">
                     Creating end-to-end web applications with modern technologies, focusing on scalable 
                     architecture and exceptional user experiences.
                   </p>
