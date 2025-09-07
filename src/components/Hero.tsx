@@ -14,110 +14,71 @@ const Hero = () => {
     <>
       <Navigation />
       
-      {/* Hero Section with Half Background Image */}
-      <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        {/* Background Image - Left Half */}
-        <div className="absolute inset-0 lg:w-1/2 w-full">
-          <div 
-            className="w-full h-full bg-cover bg-center bg-no-repeat"
-            style={{
-              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/lovable-uploads/245d5d0e-eb9a-45f7-853f-f77ebdb7283c.png')`
-            }}
-          />
-        </div>
-        
-        {/* Content Background - Right Half */}
-        <div className="absolute inset-0 lg:left-1/2 left-0 bg-background/95 backdrop-blur-sm" />
-        
+      {/* Hero Section with Portrait */}
+      <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-background">
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-screen">
             
-            {/* Left side - Navigation Menu (Dark Style) */}
+            {/* Left side - Main Content */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="order-2 lg:order-1 flex flex-col justify-center lg:pl-12"
+              className="order-2 lg:order-1 text-center lg:text-left"
             >
-              <div className="space-y-8 text-white lg:text-left text-center">
-                <nav className="space-y-4">
-                  <Link to="/about" className="block text-lg hover:text-accent transition-colors duration-300 font-medium">
-                    ABOUT ME
-                  </Link>
-                  <Link to="/experience" className="block text-lg hover:text-accent transition-colors duration-300 font-medium">
-                    EXPERIENCE
-                  </Link>
-                  <Link to="/projects" className="block text-lg hover:text-accent transition-colors duration-300 font-medium">
-                    PROJECTS
-                  </Link>
-                  <Link to="/skills" className="block text-lg hover:text-accent transition-colors duration-300 font-medium">
-                    SKILLS
-                  </Link>
-                  <Link to="/contact" className="block text-lg hover:text-accent transition-colors duration-300 font-medium">
-                    CONTACT
-                  </Link>
-                </nav>
-                
-                <div className="space-y-2 text-sm text-gray-300">
-                  <p>EMAIL</p>
-                  <p className="text-white">shubhampandey050705@gmail.com</p>
-                </div>
-                
-                <div className="space-y-2 text-sm text-gray-300">
-                  <p>PHONE</p>
-                  <p className="text-white">+91 7752884451</p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Right side - Main Content */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="order-1 lg:order-2 text-center lg:text-left lg:pr-12"
-            >
-              <div className="space-y-6">
-                <h1 className="text-5xl md:text-7xl font-bold text-foreground">
-                  Shubham
+              <div className="space-y-8">
+                <h1 className="text-6xl md:text-8xl font-bold">
+                  <span className="text-foreground">Shubham</span>
                   <br />
-                  <span className="text-accent font-bold italic">Pandey</span>
+                  <span className="text-accent font-bold">Pandey</span>
                 </h1>
                 
-                <p className="text-sm text-muted-foreground uppercase tracking-wider">
+                <p className="text-lg text-muted-foreground uppercase tracking-wider">
                   DATA SCIENTIST | FULL-STACK DEVELOPER
                 </p>
                 
-                <div className="max-w-md">
-                  <p className="text-lg text-muted-foreground leading-relaxed">
+                <div className="max-w-lg">
+                  <p className="text-xl text-muted-foreground leading-relaxed">
                     I'm a <span className="text-accent font-semibold">data science enthusiast</span> from Greater Noida, India. 
                     I aim to make a difference through my creative solutions.
                   </p>
                 </div>
                 
-                {/* Stats Grid */}
-                <div className="grid grid-cols-2 gap-8 max-w-sm pt-8">
-                  <div>
-                    <p className="text-sm text-muted-foreground uppercase tracking-wider mb-1">EDUCATION</p>
-                    <p className="text-foreground">Computer Science</p>
+                {/* Navigation Links */}
+                <nav className="space-y-4 pt-8">
+                  <Link to="/about" className="block text-lg hover:text-accent transition-colors duration-300 font-medium text-muted-foreground">
+                    ABOUT ME
+                  </Link>
+                  <Link to="/experience" className="block text-lg hover:text-accent transition-colors duration-300 font-medium text-muted-foreground">
+                    EXPERIENCE
+                  </Link>
+                  <Link to="/projects" className="block text-lg hover:text-accent transition-colors duration-300 font-medium text-muted-foreground">
+                    PROJECTS
+                  </Link>
+                  <Link to="/skills" className="block text-lg hover:text-accent transition-colors duration-300 font-medium text-muted-foreground">
+                    SKILLS
+                  </Link>
+                  <Link to="/contact" className="block text-lg hover:text-accent transition-colors duration-300 font-medium text-muted-foreground">
+                    CONTACT
+                  </Link>
+                </nav>
+                
+                {/* Contact Info */}
+                <div className="space-y-4 pt-8">
+                  <div className="space-y-1">
+                    <p className="text-sm text-muted-foreground uppercase tracking-wider">EMAIL</p>
+                    <p className="text-foreground">shubhampandey050705@gmail.com</p>
                   </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground uppercase tracking-wider mb-1">EXPERIENCE</p>
-                    <p className="text-foreground">2+ years</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground uppercase tracking-wider mb-1">FAMILIAR WITH</p>
-                    <p className="text-foreground">Python, React, ML</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground uppercase tracking-wider mb-1">SKILLS</p>
-                    <p className="text-foreground">Analytics, Development</p>
+                  
+                  <div className="space-y-1">
+                    <p className="text-sm text-muted-foreground uppercase tracking-wider">PHONE</p>
+                    <p className="text-foreground">+91 7752884451</p>
                   </div>
                 </div>
                 
                 {/* Social Links */}
-                <div className="flex justify-center lg:justify-start space-x-4 pt-4">
+                <div className="flex justify-center lg:justify-start space-x-4 pt-6">
                   {[
                     { icon: Github, href: '#', label: 'GitHub' },
                     { icon: Linkedin, href: '#', label: 'LinkedIn' },
@@ -132,6 +93,26 @@ const Hero = () => {
                       <Icon size={20} />
                     </motion.a>
                   ))}
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right side - Portrait Image */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="order-1 lg:order-2 flex justify-center lg:justify-end"
+            >
+              <div className="relative">
+                <div className="w-80 h-96 lg:w-96 lg:h-[500px] relative overflow-hidden rounded-lg">
+                  <img 
+                    src="/lovable-uploads/2f745dba-75af-4de1-a404-e6afb3565d6b.png" 
+                    alt="Shubham Pandey working on laptop"
+                    className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+                  />
+                  {/* Subtle overlay for blend effect */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
                 </div>
               </div>
             </motion.div>
