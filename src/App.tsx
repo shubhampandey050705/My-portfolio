@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -24,18 +23,21 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/skills" element={<SkillsPage />} />
-            <Route path="/projects" element={<ProjectsPage />} />
-            <Route path="/experience" element={<ExperiencePage />} />
-            <Route path="/education" element={<EducationPage />} />
-            <Route path="/certificates" element={<CertificatesPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          {/* Wrapper to enforce black background across all pages */}
+          <div className="bg-black text-black min-h-screen">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/skills" element={<SkillsPage />} />
+              <Route path="/projects" element={<ProjectsPage />} />
+              <Route path="/experience" element={<ExperiencePage />} />
+              <Route path="/education" element={<EducationPage />} />
+              <Route path="/certificates" element={<CertificatesPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              {/* Catch-all for 404 */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </div>
         </BrowserRouter>
       </TooltipProvider>
     </ThemeProvider>
