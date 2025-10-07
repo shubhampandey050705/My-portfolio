@@ -129,12 +129,6 @@ export default function Hero() {
               PROJECTS
             </Link>
             <Link
-              to="/skills"
-              className="block text-lg hover:text-yellow-400 transition-colors duration-300 font-medium text-gray-900 dark:text-gray-300"
-            >
-              SKILLS
-            </Link>
-            <Link
               to="/contact"
               className="block text-lg hover:text-yellow-400 transition-colors duration-300 font-medium text-gray-900 dark:text-gray-300"
             >

@@ -143,18 +143,18 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="relative min-h-screen flex items-center justify-center py-20 bg-white dark:bg-black transition-colors duration-300"
+      className="relative py-20 bg-white dark:bg-black transition-colors duration-300 overflow-hidden"
     >
       <div
         ref={ref}
-        className="relative z-10 max-w-7xl mx-auto px-4 w-full text-center"
+        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full"
       >
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="mb-16"
+          className="mb-16 text-center"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
@@ -169,14 +169,14 @@ const Projects = () => {
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="bg-gray-100 dark:bg-white/10 dark:backdrop-blur-lg p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-white/20 text-left"
+              className="bg-gray-100 dark:bg-white/10 dark:backdrop-blur-lg p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-white/20 text-left"
             >
               {/* Top Row: Icon + Links */}
               <div className="flex items-start justify-between mb-6">
@@ -205,7 +205,7 @@ const Projects = () => {
               </div>
 
               {/* Project Title */}
-              <h3 className="text-2xl font-bold mb-4 text-black dark:text-white group-hover:text-yellow-400 transition-colors duration-300">
+              <h3 className="text-2xl font-bold mb-4 text-black dark:text-white">
                 {project.title}
               </h3>
 
