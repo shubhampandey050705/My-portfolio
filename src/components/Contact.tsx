@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { Mail, Phone, Github, Linkedin, Send, CheckCircle } from 'lucide-react';
-import emailjs from 'emailjs-com';
-import { toast } from 'sonner';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { Mail, Phone, Github, Linkedin, Send, CheckCircle } from "lucide-react";
+import emailjs from "emailjs-com";
+import { toast } from "sonner";
 
 const Contact = () => {
   const [ref, inView] = useInView({
@@ -12,15 +12,17 @@ const Contact = () => {
   });
 
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -29,23 +31,26 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      emailjs.init("YOUR_PUBLIC_KEY"); // replace with your EmailJS public key
-
       const templateParams = {
         from_name: formData.name,
         from_email: formData.email,
         subject: formData.subject,
         message: formData.message,
-        to_email: "shubhampandey050705@gmail.com"
+        to_email: "shubhampandey050705@gmail.com", // optional
       };
 
-      await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams);
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
 
-      toast.success('Message sent successfully! I will get back to you soon.');
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      toast.success("Message sent successfully! I will get back to you soon.");
+      setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
-      toast.error('Failed to send message. Please try again or contact me directly.');
-      console.error('EmailJS error:', error);
+      toast.error("Failed to send message. Please try again or contact me directly.");
+      console.error("EmailJS error:", error);
     } finally {
       setIsSubmitting(false);
     }
@@ -123,7 +128,12 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-bold text-gray-900 dark:text-white text-lg">GitHub</p>
-                    <a href="#" className="text-yellow-500 dark:text-yellow-400 hover:underline text-lg">
+                    <a
+                      href="https://github.com/shubhampandey050705"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-yellow-500 dark:text-yellow-400 hover:underline text-lg"
+                    >
                       github.com/shubhampandey050705
                     </a>
                   </div>
@@ -136,8 +146,13 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-bold text-gray-900 dark:text-white text-lg">LinkedIn</p>
-                    <a href="#" className="text-yellow-500 dark:text-yellow-400 hover:underline text-lg">
-                      linkedin.com/in/https://www.linkedin.com/in/shubham-pandey-0b183a265/
+                    <a
+                      href="https://www.linkedin.com/in/shubham-pandey-0b183a265/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-yellow-500 dark:text-yellow-400 hover:underline text-lg"
+                    >
+                      linkedin.com/in/shubham-pandey-0b183a265
                     </a>
                   </div>
                 </motion.div>
@@ -152,103 +167,102 @@ const Contact = () => {
             </div>
           </motion.div>
 
-         {/* Contact Form */}
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="bg-black/90 backdrop-blur-sm p-8 rounded-3xl shadow-2xl border border-gray-800"
-        >
-          <h3 className="text-3xl font-bold mb-8 text-white">Send Me a Message</h3>
+          {/* Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="bg-black/90 backdrop-blur-sm p-8 rounded-3xl shadow-2xl border border-gray-800"
+          >
+            <h3 className="text-3xl font-bold mb-8 text-white">Send Me a Message</h3>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-bold text-white mb-3">Full Name *</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-4 border-2 border-gray-700 rounded-xl focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-200 text-black placeholder-black font-medium bg-white/90"
+                    placeholder="Your Full Name"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-sm font-bold text-white mb-3">Email Address *</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-4 border-2 border-gray-700 rounded-xl focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-200 text-black placeholder-black font-medium bg-white/90"
+                    placeholder="your.email@example.com"
+                  />
+                </div>
+              </div>
+
               <div>
-                <label htmlFor="name" className="block text-sm font-bold text-white mb-3">Full Name *</label>
+                <label htmlFor="subject" className="block text-sm font-bold text-white mb-3">Subject *</label>
                 <input
                   type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-4 border-2 border-gray-700 rounded-xl focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-200 text-black placeholder-black font-medium bg-white/90"
-                  placeholder="Your Full Name"
+                  placeholder="What's this about?"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-bold text-white mb-3">Email Address *</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
+                <label htmlFor="message" className="block text-sm font-bold text-white mb-3">Message *</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-4 border-2 border-gray-700 rounded-xl focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-200 text-black placeholder-black font-medium bg-white/90"
-                  placeholder="your.email@example.com"
+                  rows={6}
+                  className="w-full px-4 py-4 border-2 border-gray-700 rounded-xl focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-200 resize-none text-black placeholder-black font-medium bg-white/90"
+                  placeholder="Tell me about your project, collaboration ideas, or just say hello!"
                 />
               </div>
+
+              <motion.button
+                type="submit"
+                disabled={isSubmitting}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-black py-4 px-8 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-3"
+              >
+                {isSubmitting ? (
+                  <>
+                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-black"></div>
+                    <span>Sending...</span>
+                  </>
+                ) : (
+                  <>
+                    <Send size={20} />
+                    <span>Send Message</span>
+                  </>
+                )}
+              </motion.button>
+            </form>
+
+            <div className="mt-6 p-4 bg-black/50 rounded-xl flex items-center space-x-2">
+              <CheckCircle className="text-yellow-400" size={20} />
+              <p className="text-white text-sm">
+                Your message will be sent directly to my email. I'll respond as soon as possible!
+              </p>
             </div>
-
-            <div>
-              <label htmlFor="subject" className="block text-sm font-bold text-white mb-3">Subject *</label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-4 border-2 border-gray-700 rounded-xl focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-200 text-black placeholder-black font-medium bg-white/90"
-                placeholder="What's this about?"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="message" className="block text-sm font-bold text-white mb-3">Message *</label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                rows={6}
-                className="w-full px-4 py-4 border-2 border-gray-700 rounded-xl focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-200 resize-none text-black placeholder-black font-medium bg-white/90"
-                placeholder="Tell me about your project, collaboration ideas, or just say hello!"
-              />
-            </div>
-
-            <motion.button
-              type="submit"
-              disabled={isSubmitting}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-black py-4 px-8 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-3"
-            >
-              {isSubmitting ? (
-                <>
-                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-black"></div>
-                  <span>Sending...</span>
-                </>
-              ) : (
-                <>
-                  <Send size={20} />
-                  <span>Send Message</span>
-                </>
-              )}
-            </motion.button>
-          </form>
-
-          <div className="mt-6 p-4 bg-black/50 rounded-xl flex items-center space-x-2">
-            <CheckCircle className="text-yellow-400" size={20} />
-            <p className="text-white text-sm">
-              Your message will be sent directly to my email. I'll respond as soon as possible!
-            </p>
-          </div>
-        </motion.div>
-
+          </motion.div>
         </div>
       </div>
     </section>

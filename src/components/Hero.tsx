@@ -5,27 +5,13 @@ import {
   Linkedin,
   Mail,
   ArrowDown,
-  Sun,
-  Moon,
   BarChart3,
   Database,
   Brain,
 } from "lucide-react";
-import { useState, useEffect } from "react";
 import Navigation from "./Navigation";
 
 export default function Hero() {
-  const [darkMode, setDarkMode] = useState(true);
-
-  // Apply theme class to <html>
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [darkMode]);
-
   const scrollToAbout = () => {
     const aboutSection = document.getElementById("about-brief");
     if (aboutSection) {
@@ -38,16 +24,8 @@ export default function Hero() {
       {/* Navbar */}
       <Navigation />
 
-      {/* Dark/Light Mode Toggle */}
-      <button
-        onClick={() => setDarkMode(!darkMode)}
-        className="fixed top-6 right-6 z-50 p-2 rounded-full bg-white/20 dark:bg-black/40 border border-white/30 text-gray-800 dark:text-gray-200 hover:scale-110 transition-all"
-      >
-        {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-      </button>
-
       {/* Hero Section (Page 1) */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden mt-20">
         {/* Fullscreen Background Image */}
         <div className="absolute inset-0">
           <img
@@ -75,16 +53,20 @@ export default function Hero() {
             <p className="text-lg text-gray-300 uppercase tracking-wider">
               DATA SCIENCE | DATA ANALYTICS
             </p>
-            {/* Added paragraph here */}
             <p className="text-base md:text-lg text-gray-300 max-w-xl leading-relaxed">
-              I'm a data science enthusiast passionate about transforming complex
-              data into actionable insights and impactful solutions. Leveraging
-              data science to drive strategic decision-making and solve real-world
-              problems. My expertise spans data analysis, machine learning, and
-              statistical modeling. A data professional skilled in uncovering
-              trends, building predictive models, and communicating data-driven
-              stories to the world.
+              I'm a data science enthusiast passionate about transforming
+              complex data into actionable insights and impactful solutions.
+              Leveraging data science to drive strategic decision-making and
+              solve real-world problems. My expertise spans data analysis,
+              machine learning, and statistical modeling. A data professional
+              skilled in uncovering trends, building predictive models, and
+              communicating data-driven stories to the world.
             </p>
+
+            {/* ✅ Resume Button */}
+            <button className="inline-block mt-6 px-6 py-3 bg-yellow-400 text-black font-semibold rounded-lg shadow-md hover:bg-yellow-300 transition duration-300">
+              Download Resume
+            </button>
           </motion.div>
 
           {/* Right Side: Profile Image */}
@@ -120,7 +102,7 @@ export default function Hero() {
         </motion.div>
       </section>
 
-      {/* About Brief Section (Page 2 with Links + Contact + Socials + Portfolio) */}
+      {/* About Brief Section */}
       <section
         id="about-brief"
         className="min-h-screen flex flex-col items-center justify-center py-20 bg-background"
@@ -130,31 +112,31 @@ export default function Hero() {
           <nav className="space-y-4 pt-4 flex flex-col items-center">
             <Link
               to="/about"
-              className="block text-lg hover:text-yellow-400 transition-colors duration-300 font-medium text-gray-300"
+              className="block text-lg hover:text-yellow-400 transition-colors duration-300 font-medium text-gray-900 dark:text-gray-300"
             >
               ABOUT ME
             </Link>
             <Link
               to="/experience"
-              className="block text-lg hover:text-yellow-400 transition-colors duration-300 font-medium text-gray-300"
+              className="block text-lg hover:text-yellow-400 transition-colors duration-300 font-medium text-gray-900 dark:text-gray-300"
             >
               EXPERIENCE
             </Link>
             <Link
               to="/projects"
-              className="block text-lg hover:text-yellow-400 transition-colors duration-300 font-medium text-gray-300"
+              className="block text-lg hover:text-yellow-400 transition-colors duration-300 font-medium text-gray-900 dark:text-gray-300"
             >
               PROJECTS
             </Link>
             <Link
               to="/skills"
-              className="block text-lg hover:text-yellow-400 transition-colors duration-300 font-medium text-gray-300"
+              className="block text-lg hover:text-yellow-400 transition-colors duration-300 font-medium text-gray-900 dark:text-gray-300"
             >
               SKILLS
             </Link>
             <Link
               to="/contact"
-              className="block text-lg hover:text-yellow-400 transition-colors duration-300 font-medium text-gray-300"
+              className="block text-lg hover:text-yellow-400 transition-colors duration-300 font-medium text-gray-900 dark:text-gray-300"
             >
               CONTACT
             </Link>
@@ -163,16 +145,18 @@ export default function Hero() {
           {/* Contact Info */}
           <div className="space-y-4 pt-8 text-center">
             <div className="space-y-1">
-              <p className="text-sm text-gray-400 uppercase tracking-wider">
+              <p className="text-sm text-gray-500 uppercase tracking-wider">
                 EMAIL
               </p>
-              <p className="text-white">shubhampandey050705@gmail.com</p>
+              <p className="text-gray-900 dark:text-white">
+                shubhampandey050705@gmail.com
+              </p>
             </div>
             <div className="space-y-1">
-              <p className="text-sm text-gray-400 uppercase tracking-wider">
+              <p className="text-sm text-gray-500 uppercase tracking-wider">
                 PHONE
               </p>
-              <p className="text-white">+91 7752884451</p>
+              <p className="text-gray-900 dark:text-white">+91 7752884451</p>
             </div>
           </div>
 
@@ -191,7 +175,7 @@ export default function Hero() {
                 key={label}
                 href={href}
                 whileHover={{ scale: 1.1, y: -2 }}
-                className="p-3 bg-white/10 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 text-gray-300 hover:text-yellow-400 border border-white/20"
+                className="p-3 bg-white/10 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 text-gray-900 dark:text-gray-300 hover:text-yellow-400 border border-white/20"
               >
                 <Icon size={20} />
               </motion.a>

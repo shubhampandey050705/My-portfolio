@@ -71,16 +71,19 @@ const About = () => {
               </span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-              I'm a passionate Computer Science student at Galgotias University
-              specializing in{" "}
-              <span className="font-semibold text-foreground">
-                Data Science
-              </span>{" "}
-              and{" "}
-              <span className="font-semibold text-foreground">
-                Full-Stack Development
-              </span>
-              . My journey combines analytical thinking with creative
+              Hello! I’m Shubham Pandey, a 4th-year B.Tech Computer Science student at Galgotias University, with a strong interest in Data Science, Data Analytics, Machine Learning, and Full-Stack Development.<br></br>
+
+            I love exploring how data can drive innovationwhether it’s building predictive models, analyzing trends, or deploying AI-powered solutions within web applications. Over time, I’ve developed projects like a Heart Disease Prediction , Q/A full stack website, AI-based Crop Recommendation System, Data anlysis of company using SQL, which reflect my passion for combining AI, analytics, and development to create practical, user-friendly solutions.
+            <br></br>
+   
+            My vision is to not just be a developer, but also a problem-solver and mentor. I plan to work real world problem solving alongside my technical journey, aiming to bridge the gap between technology and management while guiding others in the field.
+            <br>
+            </br>
+
+            Beyond coding, I’m always eager to explore new technologies, challenge myself with projects, and continuously learn to stay ahead in this fast-evolving tech world.{" "}
+            
+
+             My journey combines analytical thinking with creative
               problem-solving to build innovative solutions.
             </p>
           </motion.div>
@@ -101,10 +104,16 @@ const About = () => {
                   "Building predictive models and intelligent systems with modern ML algorithms.",
               },
               {
+                icon: <BarChart3 className="text-accent" size={32} />,
+                title: "Data Science",
+                description:
+                  "Using Machine learning model to predict trends of data and fins insights.",
+              },
+              {
                 icon: <Database className="text-accent" size={32} />,
                 title: "Data Engineering",
                 description:
-                  "Designing robust pipelines, ETL processes, and database architectures.",
+                  "Designing robust pipelines, EDA processes, and database architectures.",
               },
               {
                 icon: <Code className="text-accent" size={32} />,
@@ -116,7 +125,7 @@ const About = () => {
                 icon: <Globe className="text-accent" size={32} />,
                 title: "Web Development",
                 description:
-                  "Creating responsive apps using React, Node.js, and modern cloud tech.",
+                  "Creating responsive apps using React, Node.js, flask and modern cloud tech.",
               },
               {
                 icon: <Zap className="text-accent" size={32} />,
@@ -124,6 +133,7 @@ const About = () => {
                 description:
                   "Building dashboards and reports that enable smarter business decisions.",
               },
+              
             ].map((skill, index) => (
               <motion.div
                 key={skill.title}
